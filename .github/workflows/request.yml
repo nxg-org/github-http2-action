@@ -1,0 +1,11 @@
+name: Request Testing
+on: [push]
+jobs:
+  Request Send:
+    runs-on: ubuntu-latest
+    steps:
+    - name: HTTP Request Action
+      uses: fjogeleit/http-request-action@v1.8.0
+      with:
+        url: 'https://httpbin.org/ip'
+        method: 'GET'
