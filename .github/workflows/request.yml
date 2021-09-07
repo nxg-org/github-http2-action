@@ -1,7 +1,7 @@
 name: request
 on: [push]
 jobs:
-  Request Send:
+  Request-Send:
     runs-on: ubuntu-latest
     steps:
     - name: HTTP Request Action
