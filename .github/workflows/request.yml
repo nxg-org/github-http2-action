@@ -1,11 +1,14 @@
-name: Request Testing
+name: request
 on: [push]
 jobs:
   Request Send:
     runs-on: ubuntu-latest
     steps:
     - name: HTTP Request Action
+      id: registerReq
       uses: fjogeleit/http-request-action@v1.8.0
       with:
         url: 'https://httpbin.org/ip'
         method: 'GET'
+    - name: Show Response
+      run: echo ${{ steps.registerReq.outputs.response }}
