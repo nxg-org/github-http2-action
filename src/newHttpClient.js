@@ -48,6 +48,8 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
 //   console.log(await newRequest({url: 'https://nghttp2.org/httpbin/headers', method: "GET", data: undefined, http2: true, body: undefined, headers: {"authorization": "bruh"}}))
 // })();
 
+//hi
+
 
 module.exports = {
   newRequest

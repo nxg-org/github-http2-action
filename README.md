@@ -16,9 +16,9 @@ jobs:
     - name: Deploy Stage
       uses: nxg-org/github-actions-testing@master
       with:
-        url: 'https://nghttp2.org/httpbin/ip'
-        method: 'GET'
-        http2: true
+        url: 'https://nghttp2.org/httpbin/anything'
+        method: 'POST'
+        data: {"foo": "bar"}
 ```
 
 ### Request Configuration
