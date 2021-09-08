@@ -13224,10 +13224,9 @@ const request = async ({url, method, data, http2, body, headers}) => {
     actions.setOutput('body', "HELLO")
 
   } catch (error) {
+    actions.debug(error)
     if (error.toJSON) {
       actions.setOutput('requestError', JSON.stringify(error.toJSON()));
-    } else {
-      actions.debug(error)
     }
   }
 };

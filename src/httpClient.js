@@ -65,6 +65,7 @@ const request = async ({url, method, data, http2, body, headers}) => {
     if (error.toJSON) {
       actions.setOutput('requestError', JSON.stringify(error.toJSON()));
     }
+  }
 };
 
 // (async () => { 
