@@ -1,4 +1,4 @@
-// const axios = require("axios");
+const core = require("@actions/core");
 const {GithubActions} = require("./githubActions");
 const actions = new GithubActions();
 const http2 = require("http2-wrapper");
