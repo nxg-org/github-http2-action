@@ -59,7 +59,7 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
     })
 
     actions.setOutput('headers', JSON.stringify(result.headers))
-    actions.setOutput('response', JSON.stringify(result.body))
+    actions.setOutput('body', JSON.stringify(result.body))
 
     return JSON.stringify(result.body);
   } catch (error) {
