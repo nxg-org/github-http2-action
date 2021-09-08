@@ -1,8 +1,6 @@
 const core = require("@actions/core");
 const { newRequest } = require('./newHttpClient');
-const { GithubActions } = require('./githubActions');
 
-let auth = undefined
 let customHeaders = {}
 
 if (!!core.getInput('customHeaders')) {
@@ -23,5 +21,3 @@ const method = core.getInput('method') || "POST";
 
 
 (async() => newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers}))()
-
-// request({ data, method, instanceConfig, auth, preventFailureOnNoResponse, escapeData, files, ignoredCodes, actions: new GithubActions() })
