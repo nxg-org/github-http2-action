@@ -34,4 +34,4 @@ jobs:
       - name: Show Response Headers
         run: echo ${{ steps.registerReq.outputs.response }}
       - name: Show Response Body
-        run: echo ${{ steps.registerReq.outputs.responseBody }}
+        run: echo ${{ steps.registerReq.outputs.responseHeaders }}
