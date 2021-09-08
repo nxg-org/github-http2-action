@@ -31,7 +31,7 @@ outputs:
         description: 'HTTP Response Headers'
 
 runs:
-    # using: 'node12'
-    # main: 'dist/index.js'
-    using: 'docker'
-    image: 'Dockerfile'
+    using: 'node12'
+    main: 'dist/index.js'
+    # using: 'docker'
+    # image: 'Dockerfile'
