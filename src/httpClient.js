@@ -41,7 +41,7 @@ const httpsAgent = new HttpsAgent({
  * @returns {void}
  */
 
-const fetchTEXT = async (url, opts) => ((await got(url, opts))).headers
+const fetchTEXT = async (url, opts) => ((await got(url, opts)))
 
 const request = async ( url, method, data, { http2, body, headers } = {}) => {
   try {
