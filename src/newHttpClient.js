@@ -38,6 +38,7 @@ const httpsAgent = new HttpsAgent({
  */
 
 const newRequest = async ({url, method, data, http2, body, headers}) => {
+  actions.error(JSON.stringify({url, method, data, http2, body, headers}))
   try {
     var result = await got(url, {
       method,
@@ -53,7 +54,7 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
       throwHttpErrors: false,
       responseType: 'text',
     })
-    actions.error(JSON.stringify({url, method, data, http2, body, headers}))
+
     actions.setOutput('body', JSON.stringify(result.body))
     actions.setOutput('headers', JSON.stringify(result.headers))
 
