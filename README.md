@@ -27,9 +27,9 @@ jobs:
 |url     | Request URL   | _required_ Field |
 |method  | Request Method| POST |
 |contentType  | Request ContentType| application/json |
-|data    | Request Body Content as JSON String, only for POST / PUT / PATCH Requests | '{}' |
-|body    | Raw body content of request | '{}' |
-|customHeaders| Additional header values as JSON string, keys in this object overwrite default headers like Content-Type |'{}'|
+|data    | Request Body Content as JSON String, only for POST / PUT / PATCH Requests | undefined |
+|body    | Raw body content of request | undefined |
+|customHeaders| Additional header values as JSON string, keys in this object overwrite default headers like Content-Type | undefined |
 
 ### Response
 
