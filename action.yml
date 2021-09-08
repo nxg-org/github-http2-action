@@ -49,12 +49,10 @@ inputs:
         description: 'Escape newlines in data string content'
         required: false
 outputs:
-    response: 
+    responseBody: 
         description: 'HTTP Response Content'
     responseHeaders:
         description: 'HTTP Response Headers'
-    responseBody:
-        description: 'HTTP Response Content'
 
 runs:
     # using: 'node12'
