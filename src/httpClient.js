@@ -4,8 +4,6 @@ const actions = new GithubActions();
 const http2 = require("http2-wrapper");
 const got = require("got");
 const { HttpsAgent } = require("agentkeepalive")
-const FormData = require('form-data')
-const fs = require('fs')
 
 const METHOD_GET = 'GET'
 const METHOD_POST = 'POST'
@@ -68,7 +66,7 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
     if (error.toJSON) {
       actions.setOutput('requestError', JSON.stringify(error.toJSON()));
     } else {
-      console.log(error)
+      core.debug(error)
     }
   }
 };

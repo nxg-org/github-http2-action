@@ -15,19 +15,6 @@ if (!!core.getInput('customHeaders')) {
 
 const headers = { 'Content-Type': core.getInput('contentType') || 'application/json' }
 
-if (!!core.getInput('username') || !!core.getInput('password')) {
-  core.debug('Add BasicHTTP Auth config')
-
-  auth = {
-    username: core.getInput('username'),
-    password: core.getInput('password')
-  }
-}
-
-if (!!core.getInput('bearerToken')) {
-  headers['Authorization'] = `Bearer ${core.getInput('bearerToken')}`;
-}
-
 const instanceConfig = {
   baseURL: core.getInput('url', { required: true }),
   timeout: parseInt(core.getInput('timeout') || 5000, 10),
@@ -36,17 +23,9 @@ const instanceConfig = {
 
 const data = core.getInput('data') || '{}';
 const http2 = core.getInput('http2') || false;
-const files = core.getInput('files') || '{}';
+const body = core.getInput('files') || undefined;
 const method = core.getInput('method') || METHOD_POST;
-const preventFailureOnNoResponse = core.getInput('preventFailureOnNoResponse') === 'true';
-const escapeData = core.getInput('escapeData') === 'true';
 
-const ignoreStatusCodes = core.getInput('ignoreStatusCodes')
-let ignoredCodes = []
 
-if (typeof ignoreStatusCodes === 'string' && ignoreStatusCodes.length > 0) {
-  ignoredCodes = ignoreStatusCodes.split(',').map(statusCode => parseInt(statusCode.trim()))
-}
-
-request(instanceConfig.baseURL, method, data, { http2, files, headers = instanceConfig.headers })
+request(instanceConfig.baseURL, method, data, { http2, body, headers = instanceConfig.headers })
 // request({ data, method, instanceConfig, auth, preventFailureOnNoResponse, escapeData, files, ignoredCodes, actions: new GithubActions() })
