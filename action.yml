@@ -26,8 +26,6 @@ inputs:
         description: 'Custom HTTP Headers'
         required: false
 outputs:
-    response:
-        description: 'HTTP Response Content'
     body: 
         description: 'HTTP Response Content'
     headers:
