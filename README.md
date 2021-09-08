@@ -5,7 +5,7 @@ Credit to them for giving me a blueprint to work with.
 
 # HTTP Request Action
 
-**Create HTTP Requests from GitHub Actions.** This action allows GitHub events to engage with tools like Ansible AWX that use HTTP APIs.
+**Create HTTP Requests from GitHub Actions.** This action allows GitHub events to engage with public websites.
 
 ### Example
 ```yaml
@@ -16,8 +16,9 @@ jobs:
     - name: Deploy Stage
       uses: nxg-org/github-actions-testing@master
       with:
-        url: 'https://ansible.io/api/v2/job_templates/84/launch/'
-        method: 'POST'
+        url: 'https://nghttp2.org/httpbin/headers'
+        method: 'GET'
+        http2: true
 ```
 
 ### Request Configuration
