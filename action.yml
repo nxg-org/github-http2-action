@@ -49,9 +49,9 @@ inputs:
         description: 'Escape newlines in data string content'
         required: false
 outputs:
-    responseBody: 
+    body: 
         description: 'HTTP Response Content'
-    responseHeaders:
+    headers:
         description: 'HTTP Response Headers'
 
 runs:
