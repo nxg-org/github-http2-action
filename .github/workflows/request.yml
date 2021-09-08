@@ -34,4 +34,4 @@ jobs:
       - name: Show Response
         run: echo ${{ steps.registerReq.outputs }}
       - name: Test Echo
-        run echo "hi"
+        run: echo "hi"
