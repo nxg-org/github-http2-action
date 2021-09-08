@@ -13158,7 +13158,7 @@ module.exports = { GithubActions, LogActions }
 
 /***/ }),
 
-/***/ 9082:
+/***/ 4560:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const {GithubActions} = __nccwpck_require__(8169);
@@ -13431,7 +13431,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(2186);
-const { newRequest, METHOD_POST } = __nccwpck_require__(9082);
+const { newRequest, METHOD_POST } = __nccwpck_require__(4560);
 const { GithubActions } = __nccwpck_require__(8169);
 
 let auth = undefined
@@ -13450,7 +13450,7 @@ const headers = { 'Content-Type': core.getInput('contentType') || 'application/j
 
 const data = core.getInput('data') || '{}';
 const http2 = core.getInput('http2') || false;
-const body = core.getInput('files') || undefined;
+const body = core.getInput('body') || undefined;
 const method = core.getInput('method') || METHOD_POST;
 
 
