@@ -31,7 +31,7 @@ jobs:
           url: 'https://nghttp2.org/httpbin/ip'
           method: 'GET'
           http2: true
-      - name: Show Response
-        run: echo ${{ steps.registerReq.outputs }}
-      - name: Test Echo
-        run: echo "hi"
+      - name: Show Response Headers
+        run: echo ${{ steps.registerReq.outputs.responseHeaders }}
+      - name: Show Response Body
+        run: echo ${{ steps.registerReq.outputs.responseBody }}
