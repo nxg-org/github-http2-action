@@ -22,7 +22,6 @@ inputs:
     body:
         description: 'Raw body data'
         required: false
-        default: null
     customHeaders:
         description: 'Custom HTTP Headers'
         required: false
