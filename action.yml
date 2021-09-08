@@ -8,6 +8,10 @@ inputs:
         description: 'Request Method'
         required: false
         default: 'POST'
+    http2:
+        description: 'Upgrade to http2'
+        required: false
+        default: false
     contentType:
         description: 'Content Type'
         required: false
