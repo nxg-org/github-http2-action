@@ -1,0 +1,55 @@
+Arguments: 
+  /usr/local/bin/node /usr/bin/yarn install
+
+PATH: 
+  /home/generel/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/home/generel/bin:/home/generel/.local/bin:/home/generel/bin:/home/generel/.local/bin:/home/generel/.local/bin:/home/generel/.local/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  16.6.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: EACCES: permission denied, unlink '/home/generel/Documents/vscode/github-abuse/node_modules/clone-response/node_modules/mimic-response/package.json'
+
+npm manifest: 
+  {
+    "name": "nextgen-requests",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "private": false,
+    "scripts": {
+      "build": "ncc build src/index.js -o dist"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/nxg-org/github-actions-testing.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/nxg-org/github-actions-testing/issues"
+    },
+    "homepage": "https://github.com/nxg-org/github-actions-testing#readme",
+    "devDependencies": {
+      "@actions/core": "^1.2.6"
+    },
+    "dependencies": {
+      "@vercel/ncc": "^0.30.0",
+      "agentkeepalive": "^4.1.4",
+      "got": "^11.8.2",
+      "http2-wrapper": "^2.1.8"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

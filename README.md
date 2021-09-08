@@ -1,3 +1,6 @@
+# Note:
+### This README is edited from [this project](https://github.com/fjogeleit/http-request-action).
+
 # HTTP Request Action
 
 **Create HTTP Requests from GitHub Actions.** This action allows GitHub events to engage with tools like Ansible AWX that use HTTP APIs.
