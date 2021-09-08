@@ -12,12 +12,13 @@ if (!!core.getInput('customHeaders')) {
 }
 
 const url = core.getInput('url', { required: true })
-const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
-
-const data = core.getInput('data') || undefined;
-const http2 = core.getInput('http2').toLowerCase() === 'true' || false;
-const body = core.getInput('body') || undefined;
 const method = core.getInput('method') || "POST";
+const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
+const data = core.getInput('data') || undefined;
+const body = core.getInput('body') || undefined;
+
+//Thanks yaml 1.2
+const http2 = core.getInput('http2').toLowerCase() === 'true' || false;
 
 
-(async() => newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers}))()
+newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers})

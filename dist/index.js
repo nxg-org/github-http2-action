@@ -13115,6 +13115,7 @@ function wrappy (fn, cb) {
 /***/ 8169:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
+//Not my code. https://github.com/fjogeleit/http-request-action/blob/master/src/githubActions.js
 const core = __nccwpck_require__(2186);
 
 class GithubActions {
@@ -13411,9 +13412,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(2186);
 const { newRequest } = __nccwpck_require__(4560);
-const { GithubActions } = __nccwpck_require__(8169);
 
-let auth = undefined
 let customHeaders = {}
 
 if (!!core.getInput('customHeaders')) {
@@ -13425,18 +13424,16 @@ if (!!core.getInput('customHeaders')) {
 }
 
 const url = core.getInput('url', { required: true })
-const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
-
-const data = core.getInput('data') || undefined;
-const http2 = core.getInput('http2').toLowerCase() === 'true' || false;
-const body = core.getInput('body') || undefined;
 const method = core.getInput('method') || "POST";
+const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
+const data = core.getInput('data') || undefined;
+const body = core.getInput('body') || undefined;
+
+//Thanks yaml 1.2
+const http2 = core.getInput('http2').toLowerCase() === 'true' || false;
 
 
-(async() => newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers}))()
-
-// request({ data, method, instanceConfig, auth, preventFailureOnNoResponse, escapeData, files, ignoredCodes, actions: new GithubActions() })
-
+newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers})
 })();
 
 module.exports = __webpack_exports__;

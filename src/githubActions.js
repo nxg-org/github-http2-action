@@ -1,3 +1,4 @@
+//Not my code. https://github.com/fjogeleit/http-request-action/blob/master/src/githubActions.js
 const core = require("@actions/core");
 
 class GithubActions {
