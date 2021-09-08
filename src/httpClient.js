@@ -29,8 +29,8 @@ const httpsAgent = new HttpsAgent({
  * @param {Object} param0
  * @param {string} param0.method HTTP Method
  * @param {{ baseURL: string; timeout: number; headers: { [name: string]: string } }} param0.instanceConfig
- * @param {string} param0.data Request Body as string, default {}
- * @param {string} param0.files Map of Request Files (name: absolute path) as JSON String, default: {}
+ * @param {string} param0.data newRequest Body as string, default {}
+ * @param {string} param0.files Map of newRequest Files (name: absolute path) as JSON String, default: {}
  * @param {{ username: string; password: string }|undefined} param0.auth Optional HTTP Basic Auth
  * @param {*} param0.actions 
  * @param {number[]} param0.ignoredCodes Prevent Action to fail if the API response with one of this StatusCodes
@@ -40,7 +40,7 @@ const httpsAgent = new HttpsAgent({
  * @returns {void}
  */
 
-const request = async ({url, method, data, http2, body, headers}) => {
+const newRequest = async ({url, method, data, http2, body, headers}) => {
   try {
     var result = await got(url, {
       method,
@@ -63,18 +63,18 @@ const request = async ({url, method, data, http2, body, headers}) => {
   } catch (error) {
     actions.debug(error)
     if (error.toJSON) {
-      actions.setOutput('requestError', JSON.stringify(error.toJSON()));
+      actions.setOutput('newRequestError', JSON.stringify(error.toJSON()));
     }
   }
 };
 
 // (async () => { 
-//   console.log(await request('https://nghttp2.org/httpbin/headers', "GET", undefined, {http2: true, body: undefined, headers: {"authorization": "bruh"}}))
+//   console.log(await newRequest('https://nghttp2.org/httpbin/headers', "GET", undefined, {http2: true, body: undefined, headers: {"authorization": "bruh"}}))
 // })();
 
 
 module.exports = {
-  request,
+  newRequest,
   METHOD_POST,
   METHOD_GET,
 }

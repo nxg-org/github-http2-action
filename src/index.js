@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-const { request, METHOD_POST } = require('./httpClient');
+const { newRequest, METHOD_POST } = require('./httpClient');
 const { GithubActions } = require('./githubActions');
 
 let auth = undefined
@@ -22,6 +22,6 @@ const body = core.getInput('files') || undefined;
 const method = core.getInput('method') || METHOD_POST;
 
 
-request({url, method, data, http2, body, headers})
+newRequest({url, method, data, http2, body, headers})
 
 // request({ data, method, instanceConfig, auth, preventFailureOnNoResponse, escapeData, files, ignoredCodes, actions: new GithubActions() })
