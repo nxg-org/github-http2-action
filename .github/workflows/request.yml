@@ -32,4 +32,6 @@ jobs:
           method: 'GET'
           http2: true
       - name: Show Response
-        run: echo ${{ steps.registerReq.outputs.response }}
+        run: echo ${{ steps.registerReq.outputs }}
+      - name: Test Echo
+        run echo "hi"
