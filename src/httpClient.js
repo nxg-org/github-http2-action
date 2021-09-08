@@ -40,7 +40,7 @@ const httpsAgent = new HttpsAgent({
  * @returns {void}
  */
 
-const request = async ( url, method, data, { http2, body, headers } = {}) => {
+const request_old = async ( url, method, data, { http2, body, headers } = {}) => {
   try {
     var result = await got(url, {
       method,
