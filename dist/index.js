@@ -13200,7 +13200,6 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
       headers,
       body: body ? body : data ? JSON.stringify(data) : undefined,
       http2,
-      dnsLookupIpVersion: 'ipv4',
       throwHttpErrors: false,
       responseType: 'text',
     })
