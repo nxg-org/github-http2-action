@@ -1,9 +1,30 @@
 const axios = require("axios");
+const http2 = require("http2-wrapper");
+const got, { Options, Response } = require("got");
+const { Http2Agent } = require("agentkeepalive")
 const FormData = require('form-data')
 const fs = require('fs')
 
 const METHOD_GET = 'GET'
 const METHOD_POST = 'POST'
+
+
+const https2Agent = new http2.Agent({
+  timeout: 60000,
+  maxEmptySessions: 10000,
+  maxCachedTlsSessions: 10000,
+});
+
+const httpsAgent = new HttpsAgent({
+  keepAlive: true,
+  keepAliveMsecs: 120000,
+  maxSockets: Number.MAX_VALUE,
+  maxFreeSockets: Number.MAX_VALUE,
+  timeout: 60000,
+  freeSocketTimeout: 120000,
+  maxCachedSessions: 10000,
+});
+
 
 /**
  * @param {Object} param0
@@ -19,7 +40,35 @@ const METHOD_POST = 'POST'
  *
  * @returns {void}
  */
-const request = async({ method, instanceConfig, data, files, auth, actions, ignoredCodes, preventFailureOnNoResponse, escapeData }) => {
+
+const fetchTEXT = async (url, opts) => ((await got(url, opts))).body
+
+const request = async ( url, method = METHOD_POST, data = undefined, { http2 = false, body, headers } = {}) => {
+  try {
+    var result = await fetchTEXT(url, {
+      method,
+      agent: {
+        http: httpsAgent,
+        https: httpsAgent,
+        http2: https2Agent,
+      },
+      headers,
+      body: body ? body : data ? JSON.stringify(data) : undefined,
+      http2,
+      dnsLookupIpVersion: 'ipv4',
+      throwHttpErrors: false,
+      responseType: 'text',
+    })
+    actions.setOutput('response', JSON.stringify(result))
+  } catch (error) {
+    if (error.toJSON) {
+      actions.setOutput('requestError', JSON.stringify(error.toJSON()));
+    }
+  }
+};
+
+
+const request_old = async({ method, instanceConfig, data, files, auth, actions, ignoredCodes, preventFailureOnNoResponse, escapeData }) => {
   try {
     if (escapeData) {
       data = data.replace(/"[^"]*"/g, (match) => { 
