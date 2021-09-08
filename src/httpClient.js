@@ -58,7 +58,7 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
     })
     actions.debug("HELLO THERE")
     actions.setOutput('headers', JSON.stringify(result.headers))
-    actions.setOutput('body', JSON.stringify(result.body))
+    actions.setOutput('body', "HELLO")
 
   } catch (error) {
     if (error.toJSON) {
@@ -69,9 +69,9 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
   }
 };
 
-(async () => { 
-  console.log(await request('https://nghttp2.org/httpbin/headers', "GET", undefined, {http2: true, body: undefined, headers: {"authorization": "bruh"}}))
-})();
+// (async () => { 
+//   console.log(await request('https://nghttp2.org/httpbin/headers', "GET", undefined, {http2: true, body: undefined, headers: {"authorization": "bruh"}}))
+// })();
 
 
 module.exports = {
