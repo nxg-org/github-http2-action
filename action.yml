@@ -57,7 +57,7 @@ outputs:
         description: 'HTTP Response Content'
 
 runs:
-    using: 'node16'
+    using: 'node14'
     main: 'dist/index.js'
     # using: 'docker'
     # image: 'Dockerfile'
