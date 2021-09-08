@@ -67,7 +67,5 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
 
 
 module.exports = {
-  newRequest,
-  METHOD_POST,
-  METHOD_GET,
+  newRequest
 }
