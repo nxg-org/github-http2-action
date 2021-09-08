@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Deploy Stage
-      uses: nxg-org/github-actions-testing@master
+      uses: nxg-org/github-http2-action@master
       with:
         url: 'https://nghttp2.org/httpbin/anything'
         method: 'POST'
@@ -45,7 +45,7 @@ To display HTTP response data in the GitHub Actions log give the request an `id`
 steps:
   - name: Make Request
     id: myRequest
-    uses: nxg-org/github-actions-testing@master
+    uses: nxg-org/github-http2-action@master
     with:
       url: "http://yoursite.com/api"
   - name: Show Response
