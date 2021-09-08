@@ -16,6 +16,10 @@ class GithubActions {
   setFailed(message) {
     core.setFailed(message)
   }
+
+  error(message) {
+    core.error(message)
+  }
 }
 
 class LogActions {

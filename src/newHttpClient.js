@@ -60,11 +60,7 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
     actions.setOutput('headers', JSON.stringify(result.headers))
 
   } catch (error) {
-    console.log(error)
-    if (error.toJSON) {
-      actions.setOutput('newRequestError', JSON.stringify(error.toJSON()));
-    }
-
+    actions.error(error);
   }
 };
 
