@@ -9,12 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Deploy Stage
-      uses: fjogeleit/http-request-action@master
+      uses: nxg-org/github-actions-testing@master
       with:
         url: 'https://ansible.io/api/v2/job_templates/84/launch/'
         method: 'POST'
-        username: ${{ secrets.AWX_USER }}
-        password: ${{ secrets.AWX_PASSWORD }}
 ```
 
 ### Request Configuration
@@ -25,21 +23,15 @@ jobs:
 |method  | Request Method| POST |
 |contentType  | Request ContentType| application/json |
 |data    | Request Body Content as JSON String, only for POST / PUT / PATCH Requests | '{}' |
-|files    | Map of key / absolute file paths send as multipart/form-data request to the API, if set the contentType is set to multipart/form-data, values provided by data will be added as additional FormData values, nested objects are not supported. **Example provided in the _test_ Workflow of this Action** | '{}' |
-|timeout| Request Timeout in ms | 5000 (5s) |
-|username| Username for Basic Auth ||
-|password| Password for Basic Auth ||
-|bearerToken| Bearer Authentication Token (without Bearer Prefix) ||
+|body    | Raw body content of request | '{}' |
 |customHeaders| Additional header values as JSON string, keys in this object overwrite default headers like Content-Type |'{}'|
-|escapeData| Escape newlines in data string content. Use 'true' (string) as value to enable it ||
-|preventFailureOnNoResponse| Prevent this Action to fail if the request respond without an response. Use 'true' (string) as value to enable it ||
-|ignoreStatusCodes| Prevent this Action to fail if the request respond with one of the configured Status Codes. Example: '404,401' ||
 
 ### Response
 
 | Variable |  Description  |
 |---|---|
-`response` | Response as JSON String
+`body` | Response as JSON String |
+`headers` | Response headers 
 
 To display HTTP response data in the GitHub Actions log give the request an `id` and access its `outputs`
 
@@ -47,11 +39,11 @@ To display HTTP response data in the GitHub Actions log give the request an `id`
 steps:
   - name: Make Request
     id: myRequest
-    uses: fjogeleit/http-request-action@master
+    uses: nxg-org/github-actions-testing@master
     with:
       url: "http://yoursite.com/api"
   - name: Show Response
-    run: echo ${{ steps.myRequest.outputs.response }}
+    run: echo ${{ steps.myRequest.outputs.body }}
 ```
 
 ### Additional Information
