@@ -41,11 +41,9 @@ const httpsAgent = new HttpsAgent({
  * @returns {void}
  */
 
-const fetchTEXT = async (url, opts) => ((await got(url, opts)))
-
 const request = async ( url, method, data, { http2, body, headers } = {}) => {
   try {
-    var result = await fetchTEXT(url, {
+    var result = await got(url, {
       method,
       agent: {
         http: httpsAgent,
@@ -59,8 +57,8 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
       throwHttpErrors: false,
       responseType: 'text',
     })
-    actions.setOutput('response', JSON.stringify(await result.body))
-    actions.setOutput('responseHeaders', JSON.stringify(await result.headers))
+    actions.setOutput('response', JSON.stringify(result.body))
+    actions.setOutput('responseHeaders', JSON.stringify(result.headers))
   } catch (error) {
     if (error.toJSON) {
       actions.setOutput('requestError', JSON.stringify(error.toJSON()));
