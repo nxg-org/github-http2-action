@@ -59,7 +59,7 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
       throwHttpErrors: false,
       responseType: 'text',
     })
-    actions.setOutput('responseBody', JSON.stringify(result.body))
+    actions.setOutput('response', JSON.stringify(result.body))
     actions.setOutput('responseHeaders', JSON.stringify(result.headers))
   } catch (error) {
     if (error.toJSON) {
