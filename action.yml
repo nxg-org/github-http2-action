@@ -19,7 +19,7 @@ inputs:
         description: 'Request Body as JSON String'
         required: false
     body:
-        description: 'Raw body data'
+        description: 'Raw body data (images and such)'
         required: false
     customHeaders:
         description: 'Custom HTTP Headers'
