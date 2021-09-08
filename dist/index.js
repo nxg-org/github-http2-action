@@ -13205,7 +13205,6 @@ const httpsAgent = new HttpsAgent({
  */
 
 const newRequest = async ({url, method, data, http2, body, headers}) => {
-  actions.error(JSON.stringify({url, method, data, http2, body, headers}))
   try {
     var result = await got(url, {
       method,
