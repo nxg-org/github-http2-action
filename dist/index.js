@@ -13220,6 +13220,7 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
       throwHttpErrors: false,
       responseType: 'text',
     })
+    actions.debug({url, method, data, http2, body, headers})
     actions.setOutput('body', JSON.stringify(result.body))
     actions.setOutput('headers', JSON.stringify(result.headers))
 
