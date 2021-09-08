@@ -1,17 +1,3 @@
-# name: request
-# on: [push]
-# jobs:
-#   Request-Send:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: HTTP Request Action
-#       id: registerReq
-#       uses: fjogeleit/http-request-action@v1.8.0
-#       with:
-#         url: 'https://httpbin.org/ip'
-#         method: 'GET'
-#     - name: Show Response
-#       run: echo ${{ steps.registerReq.outputs.response }}
 name: Test
 
 on: [push, pull_request]
@@ -34,4 +20,4 @@ jobs:
       - name: Show Response Headers
         run: echo ${{ steps.registerReq.outputs.headers }}
       - name: Show Response Body
-        run: echo ${{ steps.registerReq.outputs.body }}
+        run: echo ${{ steps.registerReq.outputs.response }}
