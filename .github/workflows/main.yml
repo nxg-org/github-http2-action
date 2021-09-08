@@ -15,6 +15,6 @@ jobs:
           method: 'GET'
           http2: true
       - name: Show Response Headers
-        run: echo ${{ registerReq.outputs.headers }}
+        run: echo ${{ steps.registerReq.outputs.headers }}
       - name: Show Response Body
-        run: echo ${{ registerReq.outputs.body }}
+        run: echo ${{ steps.registerReq.outputs.body }}
