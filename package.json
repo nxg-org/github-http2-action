@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fjogeleit/http-request-action.git"
+    "url": "git+https://github.com/nxg-org/github-actions-testing.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fjogeleit/http-request-action/issues"
+    "url": "https://github.com/nxg-org/github-actions-testing/issues"
   },
-  "homepage": "https://github.com/fjogeleit/http-request-action#readme",
+  "homepage": "https://github.com/nxg-org/github-actions-testing#readme",
   "devDependencies": {
     "@actions/core": "^1.2.6"
   },
