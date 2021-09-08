@@ -60,16 +60,17 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
     actions.setOutput('headers', JSON.stringify(result.headers))
 
   } catch (error) {
-    actions.debug(error)
+    console.log(error)
     if (error.toJSON) {
       actions.setOutput('newRequestError', JSON.stringify(error.toJSON()));
     }
+
   }
 };
 
-// (async () => { 
-//   console.log(await newRequest('https://nghttp2.org/httpbin/headers', "GET", undefined, {http2: true, body: undefined, headers: {"authorization": "bruh"}}))
-// })();
+(async () => { 
+  console.log(await newRequest({url: 'https://nghttp2.org/httpbin/headers', method: "GET", undefined, http2: true, body: undefined, headers: {"authorization": "bruh"}}))
+})();
 
 
 module.exports = {
