@@ -22,6 +22,6 @@ const body = core.getInput('body') || undefined;
 const method = core.getInput('method') || "POST";
 
 
-newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers})
+(async() => newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers}))()
 
 // request({ data, method, instanceConfig, auth, preventFailureOnNoResponse, escapeData, files, ignoredCodes, actions: new GithubActions() })

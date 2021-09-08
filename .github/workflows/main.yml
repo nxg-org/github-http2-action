@@ -14,8 +14,6 @@ jobs:
           url: 'https://nghttp2.org/httpbin/ip'
           method: 'GET'
           http2: true
-      - name: Echo source directory
-        run: echo $(ls src)
       - name: Show Response Headers
         run: echo ${{ steps.registerReq.outputs.headers }}
       - name: Show Response Body
