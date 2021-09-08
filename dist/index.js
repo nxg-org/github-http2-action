@@ -13171,9 +13171,6 @@ const http2 = __nccwpck_require__(4645);
 const got = __nccwpck_require__(3061);
 const { HttpsAgent } = __nccwpck_require__(4623)
 
-const METHOD_GET = 'GET'
-const METHOD_POST = 'POST'
-
 
 const https2Agent = new http2.Agent({
   timeout: 60000,
@@ -13231,9 +13228,9 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
   }
 };
 
-(async () => { 
-  console.log(await newRequest({url: 'https://nghttp2.org/httpbin/headers', method: "GET", data: undefined, http2: true, body: undefined, headers: {"authorization": "bruh"}}))
-})();
+// (async () => { 
+//   console.log(await newRequest({url: 'https://nghttp2.org/httpbin/headers', method: "GET", data: undefined, http2: true, body: undefined, headers: {"authorization": "bruh"}}))
+// })();
 
 
 module.exports = {
@@ -13431,7 +13428,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const core = __nccwpck_require__(2186);
-const { newRequest, METHOD_POST } = __nccwpck_require__(4560);
+const { newRequest } = __nccwpck_require__(4560);
 const { GithubActions } = __nccwpck_require__(8169);
 
 let auth = undefined
@@ -13451,7 +13448,7 @@ const headers = { 'Content-Type': core.getInput('contentType') || 'application/j
 const data = core.getInput('data') || undefined;
 const http2 = core.getInput('http2') || false;
 const body = core.getInput('body') || undefined;
-const method = core.getInput('method') || METHOD_POST;
+const method = core.getInput('method') || "POST";
 
 
 newRequest({url: url, method: method, data: data, http2: http2, body: body, headers: headers})

@@ -4,9 +4,6 @@ const http2 = require("http2-wrapper");
 const got = require("got");
 const { HttpsAgent } = require("agentkeepalive")
 
-const METHOD_GET = 'GET'
-const METHOD_POST = 'POST'
-
 
 const https2Agent = new http2.Agent({
   timeout: 60000,
@@ -64,9 +61,9 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
   }
 };
 
-(async () => { 
-  console.log(await newRequest({url: 'https://nghttp2.org/httpbin/headers', method: "GET", data: undefined, http2: true, body: undefined, headers: {"authorization": "bruh"}}))
-})();
+// (async () => { 
+//   console.log(await newRequest({url: 'https://nghttp2.org/httpbin/headers', method: "GET", data: undefined, http2: true, body: undefined, headers: {"authorization": "bruh"}}))
+// })();
 
 
 module.exports = {
