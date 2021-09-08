@@ -56,7 +56,7 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
       throwHttpErrors: false,
       responseType: 'text',
     })
-
+    actions.debug("HELLO THERE")
     actions.setOutput('headers', JSON.stringify(result.headers))
     actions.setOutput('body', JSON.stringify(result.body))
 
