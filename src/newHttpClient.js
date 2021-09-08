@@ -5,34 +5,18 @@ const got = require("got");
 const { HttpsAgent } = require("agentkeepalive")
 
 
-const https2Agent = new http2.Agent({
-  timeout: 60000,
-  maxEmptySessions: 10000,
-  maxCachedTlsSessions: 10000,
-});
+const https2Agent = new http2.Agent();
 
-const httpsAgent = new HttpsAgent({
-  keepAlive: true,
-  keepAliveMsecs: 120000,
-  maxSockets: Number.MAX_VALUE,
-  maxFreeSockets: Number.MAX_VALUE,
-  timeout: 60000,
-  freeSocketTimeout: 120000,
-  maxCachedSessions: 10000,
-});
+const httpsAgent = new HttpsAgent();
 
 
 /**
  * @param {Object} param0
  * @param {string} param0.method HTTP Method
- * @param {{ baseURL: string; timeout: number; headers: { [name: string]: string } }} param0.instanceConfig
- * @param {string} param0.data newRequest Body as string, default {}
- * @param {string} param0.files Map of newRequest Files (name: absolute path) as JSON String, default: {}
- * @param {{ username: string; password: string }|undefined} param0.auth Optional HTTP Basic Auth
- * @param {*} param0.actions 
- * @param {number[]} param0.ignoredCodes Prevent Action to fail if the API response with one of this StatusCodes
- * @param {boolean} param0.preventFailureOnNoResponse Prevent Action to fail if the API respond without Response
- * @param {boolean} param0.escapeData Escape unescaped JSON content in data
+ * @param {string} param0.url request URL
+ * @param {any} param0.data request Body as string, default: undefined
+ * @param {any} param0.body Map of request Files (name: absolute path) as JSON String, default: undefined
+ * @param {Object} param0.headers Map of headers.
  *
  * @returns {void}
  */
