@@ -1,4 +1,4 @@
-### This README is edited from [this project](https://github.com/fjogeleit/http-request-action).
+### This README is edited from [this project](https://github.com/fjogeleit/http-request-action)
 Credit to them for giving me a blueprint to work with.
 
 
