@@ -44,6 +44,7 @@ const httpsAgent = new HttpsAgent({
 const fetchTEXT = async (url, opts) => ((await got(url, opts))).body
 
 const request = async ( url, method = METHOD_POST, data = undefined, { http2 = false, body, headers } = {}) => {
+  console.log("hello");
   try {
     var result = await fetchTEXT(url, {
       method,
