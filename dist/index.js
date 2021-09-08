@@ -13220,9 +13220,10 @@ const newRequest = async ({url, method, data, http2, body, headers}) => {
       responseType: 'text',
     })
     actions.debug("HELLO THERE")
-    actions.setOutput('headers', JSON.stringify(result.headers))
-    actions.setOutput('body', "HELLO")
 
+    actions.setOutput('response', JSON.stringify(result.headers))
+    actions.setOutput('headers', JSON.stringify(result.headers))
+    
   } catch (error) {
     actions.debug(error)
     if (error.toJSON) {
