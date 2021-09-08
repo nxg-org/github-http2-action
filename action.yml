@@ -11,7 +11,7 @@ inputs:
     http2:
         description: 'Upgrade to http2'
         required: false
-        default: false
+        default: False
     contentType:
         description: 'Content Type'
         required: false

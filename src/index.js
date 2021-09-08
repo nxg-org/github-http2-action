@@ -17,7 +17,7 @@ const url = core.getInput('url', { required: true })
 const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
 
 const data = core.getInput('data') || undefined;
-const http2 = core.getInput('http2') || false;
+const http2 = getInput('my-input').toLowerCase() === 'true' || false;
 const body = core.getInput('body') || undefined;
 const method = core.getInput('method') || "POST";
 
