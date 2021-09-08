@@ -24,6 +24,15 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
+      - name: Test Request
+        id: registerReq
+        uses: ./
+        with:
+          url: 'https://httpbin.org/ip'
+          method: 'GET'
+      - name: Show Response
+        run: echo ${{ steps.registerReq.outputs.response }}
+
       - name: Request Postman Echo GET
         uses: ./
         with:
