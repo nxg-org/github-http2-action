@@ -48,5 +48,5 @@ outputs:
     response:
         description: 'HTTP Response Content'
 runs:
-    using: 'node12'
-    main: 'dist/index.js'
+    using: 'docker'
+    image: 'Dockerfile'
