@@ -18,7 +18,6 @@ inputs:
     data:
         description: 'Request Body as JSON String'
         required: false
-        default: '{}'
     body:
         description: 'Raw body data'
         required: false
