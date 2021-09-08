@@ -20,9 +20,9 @@ jobs:
   request:
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/checkout@v2
-      #   with:
-      #     ref: ${{ github.ref }}
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
 
       - name: Test Request
         id: registerReq
