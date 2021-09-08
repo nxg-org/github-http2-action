@@ -60,7 +60,7 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
       throwHttpErrors: false,
       responseType: 'text',
     })
-    actions.setOutput('response', JSON.stringify(result))
+    actions.setOutput('response', JSON.stringify(result.headers))
   } catch (error) {
     if (error.toJSON) {
       actions.setOutput('requestError', JSON.stringify(error.toJSON()));
