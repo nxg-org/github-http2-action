@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@zeit/ncc": "^0.22",
-    "axios": "^0.21.1",
     "form-data": "^3.0.1",
     "http2-wrapper": "^2.1.8"
   }

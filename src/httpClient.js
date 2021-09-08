@@ -1,7 +1,7 @@
-const axios = require("axios");
+// const axios = require("axios");
 const http2 = require("http2-wrapper");
-const got, { Options, Response } = require("got");
-const { Http2Agent } = require("agentkeepalive")
+const got = require("got");
+const { HttpsAgent } = require("agentkeepalive")
 const FormData = require('form-data')
 const fs = require('fs')
 
@@ -41,10 +41,9 @@ const httpsAgent = new HttpsAgent({
  * @returns {void}
  */
 
-const fetchTEXT = async (url, opts) => ((await got(url, opts))).body
+const fetchTEXT = async (url, opts) => ((await got(url, opts)))
 
 const request = async ( url, method, data, { http2, body, headers } = {}) => {
-  console.log("hello");
   try {
     var result = await fetchTEXT(url, {
       method,
