@@ -55,7 +55,9 @@ outputs:
         description: 'HTTP Response Headers'
     responseBody:
         description: 'HTTP Response Content'
-        
+
 runs:
-    using: 'docker'
-    image: 'Dockerfile'
+    using: 'node16'
+    main: 'dist/index.js'
+    # using: 'docker'
+    # image: 'Dockerfile'

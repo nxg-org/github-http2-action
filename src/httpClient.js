@@ -1,4 +1,6 @@
 // const axios = require("axios");
+const {GithubActions} = require("./githubActions");
+const actions = new GithubActions();
 const http2 = require("http2-wrapper");
 const got = require("got");
 const { HttpsAgent } = require("agentkeepalive")
@@ -57,11 +59,16 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
       throwHttpErrors: false,
       responseType: 'text',
     })
-    actions.setOutput('responseHeaders', JSON.stringify(result.headers))
+
+    actions.setOutput('responseHeaders', JSON.stringify(result.body))
     actions.setOutput('response', JSON.stringify(result.body))
+
+    return JSON.stringify(result.body);
   } catch (error) {
     if (error.toJSON) {
       actions.setOutput('requestError', JSON.stringify(error.toJSON()));
+    } else {
+      console.log(error)
     }
   }
 };
@@ -206,6 +213,11 @@ const request = async ( url, method, data, { http2, body, headers } = {}) => {
 //     resolve(length)
 //   })
 // })
+
+(async () => { 
+  console.log(await request('https://nghttp2.org/httpbin/headers', "GET", undefined, {http2: true, body: undefined, headers: {"authorization": "bruh"}}))
+})();
+
 
 module.exports = {
   request,
