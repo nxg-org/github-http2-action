@@ -49,7 +49,9 @@ inputs:
         description: 'Escape newlines in data string content'
         required: false
 outputs:
-    response:
+    responseHeaders:
+        description: 'HTTP Response Headers'
+    responseBody:
         description: 'HTTP Response Content'
 runs:
     using: 'docker'
