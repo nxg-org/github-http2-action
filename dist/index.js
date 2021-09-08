@@ -13116,6 +13116,7 @@ function wrappy (fn, cb) {
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 //Not my code. https://github.com/fjogeleit/http-request-action/blob/master/src/githubActions.js
+//Feels unncessary, will probably remove this later.
 const core = __nccwpck_require__(2186);
 
 class GithubActions {
@@ -13172,9 +13173,7 @@ const http2 = __nccwpck_require__(4645);
 const got = __nccwpck_require__(3061);
 const { HttpsAgent } = __nccwpck_require__(4623)
 
-
 const https2Agent = new http2.Agent();
-
 const httpsAgent = new HttpsAgent();
 
 

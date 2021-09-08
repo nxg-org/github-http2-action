@@ -1,4 +1,5 @@
 //Not my code. https://github.com/fjogeleit/http-request-action/blob/master/src/githubActions.js
+//Feels unncessary, will probably remove this later.
 const core = require("@actions/core");
 
 class GithubActions {
