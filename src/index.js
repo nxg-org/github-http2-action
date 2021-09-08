@@ -1,5 +1,5 @@
 const core = require("@actions/core");
-const { newRequest, METHOD_POST } = require('./httpClient');
+const { newRequest, METHOD_POST } = require('./newHttpClient');
 const { GithubActions } = require('./githubActions');
 
 let auth = undefined
@@ -18,7 +18,7 @@ const headers = { 'Content-Type': core.getInput('contentType') || 'application/j
 
 const data = core.getInput('data') || '{}';
 const http2 = core.getInput('http2') || false;
-const body = core.getInput('files') || undefined;
+const body = core.getInput('body') || undefined;
 const method = core.getInput('method') || METHOD_POST;
 
 

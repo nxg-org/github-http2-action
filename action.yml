@@ -19,34 +19,12 @@ inputs:
         description: 'Request Body as JSON String'
         required: false
         default: '{}'
-    files:
-        description: 'Map of absolute file paths as JSON String'
+    body:
+        description: 'Raw body data'
         required: false
-        default: '{}'
-    username:
-        description: 'Auth Username'
-        required: false
-    password:
-        description: 'Auth Password'
-        required: false
-    timeout:
-        description: 'Request Timeout in Sec'
-        required: false
-        default: '5000'
-    bearerToken:
-        description: 'Bearer Authentication Token'
-        required: false
+        default: null
     customHeaders:
         description: 'Custom HTTP Headers'
-        required: false
-    preventFailureOnNoResponse:
-        description: 'Prevent this Action to fail if the request respond without an response'
-        required: false
-    ignoreStatusCodes:
-        description: 'Prevent this Action to fail if the request respond with one of the configured StatusCodes'
-        required: false
-    escapeData:
-        description: 'Escape newlines in data string content'
         required: false
 outputs:
     response:
