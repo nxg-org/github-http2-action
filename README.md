@@ -18,7 +18,7 @@ jobs:
       with:
         url: 'https://nghttp2.org/httpbin/anything'
         method: 'POST'
-        data: {"foo": "bar"}
+        data: '{"foo": "bar"}'
 ```
 
 ### Request Configuration
