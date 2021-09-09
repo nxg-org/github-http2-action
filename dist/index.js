@@ -605,9 +605,6 @@ const httpVersion = core.getInput('http2').toLowerCase() === 'true' || false;
 
 const args = `-u=${url}` + ` -m=${method}` +  (!!json ? ` -J='${JSON.stringify(json)}'` : '') + (!!headers ? ` -H='${JSON.stringify(headers)}'` : '') + (!!body ? ` -b=${body}` : '') + (!!httpVersion? ` -v=${httpVersion}`: '')
 
-core.error(`JSON shit what the fuck: ${json}`)
-core.error(args)
-
 exec(`"${join(__dirname, 'github-http-reqs')}" ${args}`, (error, stdout, stderr) => {
     if (error) {
       core.error(`exec error: ${error}`);
