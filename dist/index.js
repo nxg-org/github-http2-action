@@ -615,7 +615,7 @@ exec(`"${join(__dirname, 'github-http-reqs')}" ${args}`, (error, stdout, stderr)
   });
 
 
-// const core = require("@actions/core");
+// const core = require("@actions/core")
 // const { newRequest } = require('./newHttpClient');
 
 // let customHeaders = {}
