@@ -12,7 +12,7 @@ jobs:
         id: registerReq
         uses: ./
         with:
-          url: 'https://nghttp2.org/httpbin/ip'
+          url: 'https://nghttp2.org/httpbin/anything'
           method: 'GET'
           httpVersion: '11'
       - name: Show Response Headers
