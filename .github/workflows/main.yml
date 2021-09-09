@@ -14,7 +14,7 @@ jobs:
         with:
           url: 'https://nghttp2.org/httpbin/ip'
           method: 'GET'
-          http2: true
+          httpVersion: '11'
       - name: Show Response Headers
         run: echo ${{ steps.registerReq.outputs.headers }}
       - name: Show Response Body
