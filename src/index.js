@@ -21,7 +21,7 @@ const body = core.getInput('body') || undefined;
 //Thanks yaml 1.2
 const httpVersion = core.getInput('http2').toLowerCase() === 'true' || false;
 
-const args = `-u=${url} -m=${method} -J=${json} -H=${headers} -b=${body} -v=${httpVersion}`
+const args = `-u=${url}` + ` -m=${method}` +  !!json? `-J=${JSON.stringify(json)}` : '' + !!headers ? `-H=${JSON.stringify(headers)}` : '' + !!body ? ` -b=${body}` : '' + !!httpVersion? `-v=${httpVersion}`: ''
 
 
 
