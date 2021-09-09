@@ -15,7 +15,7 @@ inputs:
     contentType:
         description: 'Content Type'
         required: false
-    data:
+    json:
         description: 'Request Body as JSON String'
         required: false
     body:

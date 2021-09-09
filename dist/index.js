@@ -597,23 +597,23 @@ if (!!core.getInput('customHeaders')) {
 const url = core.getInput('url', { required: true })
 const method = core.getInput('method') || "POST";
 const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
-const data = core.getInput('data') || undefined;
+const json = core.getInput('json') || undefined;
 const body = core.getInput('body') || undefined;
 
 //Thanks yaml 1.2
-const http2 = core.getInput('http2').toLowerCase() === 'true' || false;
+const httpVersion = core.getInput('http2').toLowerCase() === 'true' || false;
 
-const args = `${url} ${method}`
+const args = `-u=${url} -m=${method} -J=${json} -H=${headers} -b=${body} -v=${httpVersion}`
 
 
 
-exec(`"${join(__dirname, 'github-http-reqs')}" -u=https://httpbin.org/anything -m=GET -J='{"h": 1}' -H='{"hi-there": "you guys"}' -b='erwerwerweew' -v=2`, (error, stdout, stderr) => {
+exec(`"${join(__dirname, 'github-http-reqs')}" ${args}`, (error, stdout, stderr) => {
     if (error) {
       core.error(`exec error: ${error}`);
       return;
     }
-    core.setOutput("body", JSON.stringify(`${stdout}`).replace("\r\n", ""));
-    core.setOutput("headers", JSON.stringify(`${stderr}`).replace("\r\n", ""));
+    core.setOutput("body", JSON.stringify(`${stdout}`));
+    core.setOutput("headers", JSON.stringify(`${stderr}`));
   });
 
 
