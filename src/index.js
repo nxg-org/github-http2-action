@@ -54,7 +54,8 @@ exec(`"${join(__dirname, 'github-http-reqs')}" -u=https://httpbin.org/anything -
 // const data = core.getInput('data') || undefined;
 // const body = core.getInput('body') || undefined;
 
-// //Thanks yaml 1.2
+
+//Thanks yaml 1.2
 // const http2 = core.getInput('http2').toLowerCase() === 'true' || false;
 
 
