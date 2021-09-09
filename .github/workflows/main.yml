@@ -6,7 +6,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - name: Check glibc version
+        run: echo $(ldd --version)
       - name: Test Request
         id: registerReq
         uses: ./
