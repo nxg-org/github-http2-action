@@ -612,8 +612,8 @@ exec(`"${join(__dirname, 'github-http-reqs')}" -u=https://httpbin.org/anything -
       core.error(`exec error: ${error}`);
       return;
     }
-    core.setOutput("body", `${stdout}`);
-    core.setOutput("headers", `${stderr}`);
+    core.setOutput("body", JSON.stringify(`${stdout}`));
+    core.setOutput("headers", JSON.stringify(`${stderr}`));
   });
 
 
