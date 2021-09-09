@@ -584,13 +584,8 @@ const core = __nccwpck_require__(186)
 const exec = __nccwpck_require__(129).exec
 const join = __nccwpck_require__(622).join
 
-const url = core.getInput('url', { required: true })
-const method = core.getInput('method') || "POST";
-const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
-const data = core.getInput('data') || undefined;
-const body = core.getInput('body') || undefined;
-let customHeaders = {}
 
+let customHeaders = {}
 if (!!core.getInput('customHeaders')) {
   try {
     customHeaders = JSON.parse(core.getInput('customHeaders'));
@@ -599,6 +594,11 @@ if (!!core.getInput('customHeaders')) {
   }
 }
 
+const url = core.getInput('url', { required: true })
+const method = core.getInput('method') || "POST";
+const headers = { 'Content-Type': core.getInput('contentType') || 'application/json', ...customHeaders }
+const data = core.getInput('data') || undefined;
+const body = core.getInput('body') || undefined;
 
 //Thanks yaml 1.2
 const http2 = core.getInput('http2').toLowerCase() === 'true' || false;
