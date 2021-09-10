@@ -28,8 +28,10 @@ exec(`"${join(__dirname, 'github-http-reqs')}" ${args}`, (error, stdout, stderr)
       core.error(`exec error: ${error}`);
       return;
     }
-    core.setOutput("body", `Body: ${JSON.stringify(process.env.REQUEST_BODY)}`);
-    core.setOutput("headers", `Headers: ${JSON.stringify(process.env.REQUEST_HEADERS)}`);
+    let text = stdout.split("Headers: ")[0]
+    let headers = stdout.split("Headers: ")[1]
+    core.setOutput("body", `Body: ${JSON.stringify(text)}`);
+    core.setOutput("headers", `Headers: ${JSON.stringify(headers)}`);
   });
 // const core = require("@actions/core")
 // const { newRequest } = require('./newHttpClient');
