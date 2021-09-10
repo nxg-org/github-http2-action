@@ -610,8 +610,8 @@ exec(`"${join(__dirname, 'github-http-reqs')}" ${args}`, (error, stdout, stderr)
       core.error(`exec error: ${error}`);
       return;
     }
-    core.setOutput("body", JSON.stringify(process.env.REQUEST_BODY));
-    core.setOutput("headers", JSON.stringify(process.env.REQUEST_HEADERS));
+    core.setOutput("body", `Body: ${JSON.stringify(process.env.REQUEST_BODY)}`);
+    core.setOutput("headers", `Headers: ${JSON.stringify(process.env.REQUEST_HEADERS)}`);
   });
 // const core = require("@actions/core")
 // const { newRequest } = require('./newHttpClient');
