@@ -20,7 +20,7 @@ inputs:
     body:
         description: 'Raw body data (images and such)'
         required: false
-    customHeaders:
+    headers:
         description: 'Custom HTTP Headers'
         required: false
 outputs:

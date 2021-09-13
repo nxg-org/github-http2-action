@@ -25,12 +25,12 @@ jobs:
 
 |Argument|  Description  |  Default  |
 |--------|---------------|-----------|
-|url     | Request URL   | _required_ Field |
+|url     | Request URL   | _required_ |
 |method  | Request Method| POST |
 |contentType  | Request ContentType| application/json |
 |data    | Request Body Content as JSON String, only for POST / PUT / PATCH Requests | undefined |
 |body    | Raw body content of request (overrides data, I.E. image byte contents) | undefined |
-|customHeaders| Additional header values as JSON string, keys in this object overwrite default headers like Content-Type | undefined |
+|headers| Additional header values as JSON string, keys in this object overwrite default headers like Content-Type | undefined |
 
 ### Response
 
