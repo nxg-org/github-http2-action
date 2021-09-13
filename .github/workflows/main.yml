@@ -13,7 +13,8 @@ jobs:
         uses: ./
         with:
           url: 'https://nghttp2.org/httpbin/anything'
-          method: 'GET'
+          method: 'POST'
+          json: '{"hi": "there"}'
           httpVersion: '11'
       - name: Show Response Headers
         run: echo ${{ steps.registerReq.outputs.headers }}
