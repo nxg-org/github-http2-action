@@ -603,7 +603,7 @@ const body = core.getInput('body') || undefined;
 //Thanks yaml 1.2
 const httpVersion = core.getInput('http2').toLowerCase() === 'true' || false;
 
-const args = `-u=${url}` + ` -m=${method}` +  (!!json ? ` -J='${JSON.stringify(json)}'` : '') + (!!headers ? ` -H='${JSON.stringify(headers)}'` : '') + (!!body ? ` -b=${body}` : '') + (!!httpVersion? ` -v=${httpVersion}`: '')
+const args = `-u=${url}` + ` -m=${method}` +  (!!json ? ` -J='${json}'` : '') + (!!headers ? ` -H='${JSON.stringify(headers)}'` : '') + (!!body ? ` -b=${body}` : '') + (!!httpVersion? ` -v=${httpVersion}`: '')
 
 exec(`"${join(__dirname, 'github-http-reqs')}" ${args}`, (error, stdout, stderr) => {
     if (error) {
