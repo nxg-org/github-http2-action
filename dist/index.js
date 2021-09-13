@@ -586,9 +586,9 @@ const join = __nccwpck_require__(622).join
 
 
 let customHeaders = {}
-if (!!core.getInput('customHeaders')) {
+if (!!core.getInput('headers')) {
   try {
-    customHeaders = JSON.parse(core.getInput('customHeaders'));
+    customHeaders = JSON.parse(core.getInput('headers'));
   } catch(error) {
     core.error('Could not parse customHeaders string value')
   }
