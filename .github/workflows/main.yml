@@ -14,6 +14,7 @@ jobs:
         with:
           url: 'https://nghttp2.org/httpbin/anything'
           method: 'POST'
+          headers: '{"test": "bruh"}'
           json: '{"hi": "there"}'
           httpVersion: '11'
       - name: Show Response Headers
